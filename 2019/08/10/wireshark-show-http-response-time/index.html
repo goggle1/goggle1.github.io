@@ -82,7 +82,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#有时候，我们要检查http响应时间是快是慢。"><span class="toc-text">有时候，我们要检查http响应时间是快是慢。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？"><span class="toc-text">http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#显示http响应时间"><span class="toc-text">显示http响应时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可视化统计规律"><span class="toc-text">可视化统计规律</span></a></li></ol>
 </div>
     
 </div>
@@ -134,8 +134,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="有时候，我们要检查http响应时间是快是慢。"><a href="#有时候，我们要检查http响应时间是快是慢。" class="headerlink" title="有时候，我们要检查http响应时间是快是慢。"></a>有时候，我们要检查http响应时间是快是慢。</h1><p>http请求报文有时间戳，http响应报文也有时间戳，二者相减即可得到，我知道你是这么想的；可是在wireshark里要怎么做呢？<br>其实wireshark已经帮我们实现了这一点。<br>第一步：filter中输入http，显示如下图：<br><img src="/img/20190810/wireshark-20190810-01.png" alt="图一" title="图一"><br>第二步：filter中输入http.time，显示如下图：<br><img src="/img/20190810/wireshark-20190810-02.png" alt="图二" title="图二"><br>对比上图，多了[Time since request: 0.1102 seconds]<br>第三步：选中这个字段，显示右键菜单，如下图：<br><img src="/img/20190810/wireshark-20190810-03.png" alt="图三" title="图三"><br>选择 Apply as Columns，显示如下图：<br><img src="/img/20190810/wireshark-20190810-04.png" alt="图四" title="图四"><br>第四步：filter中输入http.time&gt;5.0，可以只显示响应时间大于5秒的http响应报文</p>
-<h1 id="http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？"><a href="#http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？" class="headerlink" title="http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？"></a>http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？</h1><p>答案也是可以的。</p>
+        <h1 id="显示http响应时间"><a href="#显示http响应时间" class="headerlink" title="显示http响应时间"></a>显示http响应时间</h1><p>有时候，我们要检查http响应时间是快是慢。<br>http请求报文有时间戳，http响应报文也有时间戳，二者相减即可得到，我知道你是这么想的；可是在wireshark里要怎么做呢？<br>其实wireshark已经帮我们实现了这一点。<br>第一步：filter中输入http，显示如下图：<br><img src="/img/20190810/wireshark-20190810-01.png" alt="图一" title="图一"><br>第二步：filter中输入http.time，显示如下图：<br><img src="/img/20190810/wireshark-20190810-02.png" alt="图二" title="图二"><br>对比上图，多了[Time since request: 0.1102 seconds]<br>第三步：选中这个字段，显示右键菜单，如下图：<br><img src="/img/20190810/wireshark-20190810-03.png" alt="图三" title="图三"><br>选择 Apply as Columns，显示如下图：<br><img src="/img/20190810/wireshark-20190810-04.png" alt="图四" title="图四"><br>第四步：filter中输入http.time&gt;5.0，可以只显示响应时间大于5秒的http响应报文</p>
+<h1 id="可视化统计规律"><a href="#可视化统计规律" class="headerlink" title="可视化统计规律"></a>可视化统计规律</h1><p>http响应时间我们看到了，能否统计显示，通过可视化揭示出一些规律呢？<br>答案也是可以的。<br><img src="/img/20190810/wireshark-20190810-05.png" alt="图五" title="图五"><br>图形是怎么出来的呢？菜单Statistics，进入IO Graphs。<br>点击+号按钮，其中的每一列都是可以编辑的，细节不再赘述。</p>
 
         
         <br />
