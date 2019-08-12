@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、步骤概述"><span class="toc-text">1、步骤概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、劫持原理"><span class="toc-text">2、劫持原理</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、测试步骤"><span class="toc-text">1、测试步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、劫持原理"><span class="toc-text">2、劫持原理</span></a></li></ol>
 </div>
     
 </div>
@@ -141,13 +141,19 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="1、步骤概述"><a href="#1、步骤概述" class="headerlink" title="1、步骤概述"></a>1、步骤概述</h1><ol>
+        <h1 id="1、测试步骤"><a href="#1、测试步骤" class="headerlink" title="1、测试步骤"></a>1、测试步骤</h1><ol>
 <li>下载Evil FOCA；<br>win7环境，有人说win10不行，版本号：0.1.4.0</li>
 <li>配置Evil FOCA；<br>配置MITM IPv4页面下的ARP spoofing页面，填写Gateway和Targets（受害者），例如：<br><img src="/img/20190812/DNS-Hijacking-01.png" alt="图1" title="图1"><br>配置DNS Hijacking页面，填写Domain和IP，例如：<br><img src="/img/20190812/DNS-Hijacking-02.png" alt="图2" title="图2"></li>
 <li>准备http server；<br>安装python环境，通过如下命令启动：<br><code>python -m SimpleHTTPServer 80</code></li>
 <li>测试，受害者访问被劫持的域名网址；<br><a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com/</a><br>得到如下页面：<br><img src="/img/20190812/DNS-Hijacking-03.png" alt="图3" title="图3"></li>
 </ol>
-<h1 id="2、劫持原理"><a href="#2、劫持原理" class="headerlink" title="2、劫持原理"></a>2、劫持原理</h1>
+<h1 id="2、劫持原理"><a href="#2、劫持原理" class="headerlink" title="2、劫持原理"></a>2、劫持原理</h1><p>局域网内有三种常见的攻击手段</p>
+<ul>
+<li>ARP Spoofing</li>
+<li>DHCP Ack Injection</li>
+<li>WPAD<br>具体原理请自行搜索。</li>
+</ul>
+
         
         <br />
         <div id="comment-container">
