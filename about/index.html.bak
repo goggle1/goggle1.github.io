@@ -11,7 +11,7 @@
 
     <title>
         
-        about - undefined
+        关于我 - undefined
         
     </title>
 
@@ -111,7 +111,13 @@
     
     <div class="index-middle">
         <!-- Main Content -->
-        
+        <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1><ul>
+<li>QQ: 52581109</li>
+<li>微信: 525281109</li>
+<li>邮箱: <a href="mailto:guoqiang@gitv.cn" target="_blank" rel="noopener">guoqiang@gitv.cn</a></li>
+</ul>
+
+
     </div>
 </div>
 
